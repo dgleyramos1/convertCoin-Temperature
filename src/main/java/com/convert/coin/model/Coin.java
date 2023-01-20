@@ -1,4 +1,4 @@
-package com.model;
+package com.convert.coin.model;
 
 public class Coin {
     private String code;
