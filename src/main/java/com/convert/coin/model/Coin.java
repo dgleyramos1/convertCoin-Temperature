@@ -1,5 +1,6 @@
 package com.convert.coin.model;
 
+
 public class Coin {
     private String code;
     private String codein;
@@ -12,16 +13,20 @@ public class Coin {
         this.bid = bid;
     }
 
+    public Coin() {
+    }
 
+    public Coin(Coin fromJson) {
+    }
     public String getCode() {
-        return this.code;
+        return code;
     }
-
     public String getCodein() {
-        return this.codein;
+        return codein;
+    }
+    public String getBid() {
+        return bid;
     }
 
-    public String getBid() {
-        return this.bid;
-    }
+    
 }

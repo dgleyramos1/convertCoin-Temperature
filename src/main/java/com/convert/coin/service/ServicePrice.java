@@ -1,53 +1,53 @@
 package com.convert.coin.service;
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.convert.coin.model.Coin;
 import com.google.gson.Gson;
 
 
 
+
 public class ServicePrice {
-    static String webService = "https://economia.awesomeapi.com.br/json/last/";
+    static String webService = "https://economia.awesomeapi.com.br/json/";
     static int codigoSucesso = 200;
+    private static Coin newCoin;
 
-    Coin coin;
 
-
-    public static Coin PriceCoin(Coin coin) throws Exception{
+    public static Coin PriceCoin(String coin) throws Exception{
 
         String urlParaChamada = webService + coin;
 
+        URL url = new URL(urlParaChamada);
+
+        URLConnection conn = url.openConnection();
+
         try {
-            URL url = new URL(urlParaChamada);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
-
-            if (conn.getResponseCode() != codigoSucesso)
-                throw new RuntimeException("HTTP error code : " + conn.getResponseCode());
-
-            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
-
-            String output = "";
-            String line;
-            while ((line = br.readLine()) != null) {
-                output += line;
+            InputStream is = conn.getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            String co = "";
+            List<String> jsonCoin = new ArrayList<String>();
+            
+            while((co = br.readLine()) != null){
+                jsonCoin.add(co);
             }
 
-            conn.disconnect();
+            String singleString = jsonCoin.toString().replaceAll("[\\[\\]]","");
 
+            Coin coinJson = new Gson().fromJson(singleString, Coin.class);
+            
+            newCoin = new Coin(coinJson.getCode(), coinJson.getCodein(), coinJson.getBid());
 
-            Gson gson = new Gson();
-
-            coin = gson.fromJson(new String(output.getBytes()), Coin.class);
-
-            return coin;
+            System.out.println(newCoin.getCode() + " " + newCoin.getCodein() + " " + newCoin.getBid());
+            return newCoin;
         } catch (Exception e) {
-            throw new Exception("ERRO: " + e);
+            throw new Exception("ERRO: " + e.getMessage());
         }
     }
 }
