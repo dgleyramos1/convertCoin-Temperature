@@ -20,4 +20,12 @@ public class ServiceConvertTemperature {
         double celsius = valor - 273;
         JOptionPane.showMessageDialog(null, "Valor em Kelvin " + valor + " convertido em Celsius " + celsius);
     }
+    public void ConvertFahrenheitTokelvin(double valor){
+        double kelvin = (valor - 32) * 5/9 + 273;
+        JOptionPane.showMessageDialog(null, "Valor em Fahrenheit " + valor + " convertido em Kelvin " + kelvin);
+    }
+    public void ConvertKelvinToFahrenheit(double valor){
+        double fahrenheit = (valor - 273) * 1.8 + 32;
+        JOptionPane.showMessageDialog(null, "Valor em Kelvin " + valor + " convertido em Fahrenheir " + fahrenheit);
+    }
 }

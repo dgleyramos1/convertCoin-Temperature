@@ -39,6 +39,12 @@ public class ControllerConvertTemperature {
             case "De Kelvin para Celsius": 
                 convert.ConvertKelvinToCelsius(valor);
                 break;
+            case "De Fahrenheit para Kelvin":
+                convert.ConvertFahrenheitTokelvin(valor);
+                break;
+            case "De Kelvin para Fahrenheit":
+                convert.ConvertKelvinToFahrenheit(valor);
+                break;
             
         }
     }
