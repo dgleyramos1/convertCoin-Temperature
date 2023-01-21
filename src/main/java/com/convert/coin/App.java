@@ -4,6 +4,7 @@ package com.convert.coin;
 import javax.swing.JOptionPane;
 
 import com.convert.coin.controller.ControllerConvertCurrincies;
+import com.convert.coin.controller.ControllerConvertTemperature;
 
 /**
  * Hello world!
@@ -11,20 +12,28 @@ import com.convert.coin.controller.ControllerConvertCurrincies;
  */
 public class App{
 
-    static ControllerConvertCurrincies controller = new ControllerConvertCurrincies();
+    static ControllerConvertCurrincies controllerCoin = new ControllerConvertCurrincies();
+    static ControllerConvertTemperature controllerTemperature = new ControllerConvertTemperature();
     public static void main( String[] args ) throws Exception{
         int resposta = -1;
 
         do {
-            String opcoes = JOptionPane.showInputDialog(null, "Escolha uma opção", "Menu", JOptionPane.PLAIN_MESSAGE, null, new Object[]{"Conversor de Moeda", "Conversor de temperatura"}, "Escolha" ).toString();
+            String opcoes = JOptionPane.showInputDialog(null, "Escolha uma opção", "Menu", JOptionPane.PLAIN_MESSAGE, null, new Object[]{"Conversor de Moeda", "Conversor de Temperatura"}, "Escolha" ).toString();
 
 
 
             switch(opcoes){
                 case "Conversor de Moeda":
-                    String input = JOptionPane.showInputDialog("Insira um valor");
-                    double valor = Double.parseDouble(input);
-                    controller.ConvertCurrencies(valor);
+                    String coin = JOptionPane.showInputDialog("Insira um valor");
+                    double valor = Double.parseDouble(coin);
+                    controllerCoin.ConvertCurrencies(valor);
+                    resposta = JOptionPane.showConfirmDialog(null, "Deseja continuar?");
+                    finish(resposta);
+                    break;
+                case "Conversor de Temperatura":
+                    String temperature = JOptionPane.showInputDialog("Insira um valo");
+                    double graus = Double.parseDouble(temperature);
+                    controllerTemperature.ConvertCurrencies(graus);
                     resposta = JOptionPane.showConfirmDialog(null, "Deseja continuar?");
                     finish(resposta);
                     break;
