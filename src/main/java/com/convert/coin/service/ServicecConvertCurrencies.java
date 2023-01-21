@@ -8,12 +8,10 @@ public class ServicecConvertCurrencies {
     
     public void ConvertBrlToUsd(double valor) throws Exception{
 
-        Coin brlToUsd = ServicePrice.PriceCoin("BRL_USD");
-        double bid = Double.parseDouble(brlToUsd.getBid());
-
-        double valorMoeda = valor/ bid ;
+        Coin brlToUsd = ServicePrice.PriceCoin("USD");
+        double bid = brlToUsd.getBid();
+        double valorMoeda = valor/bid;
         valorMoeda = (double) Math.round(valorMoeda * 100d) / 100;
-
         JOptionPane.showMessageDialog(null, "Você tem $ " + valorMoeda + " Dólares");
     }
 }

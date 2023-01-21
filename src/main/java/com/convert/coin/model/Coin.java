@@ -4,10 +4,10 @@ package com.convert.coin.model;
 public class Coin {
     private String code;
     private String codein;
-    private String bid;
+    private double bid;
 
 
-    public Coin(String code, String codein, String bid) {
+    public Coin(String code, String codein, double bid) {
         this.code = code;
         this.codein = codein;
         this.bid = bid;
@@ -24,7 +24,7 @@ public class Coin {
     public String getCodein() {
         return codein;
     }
-    public String getBid() {
+    public double getBid() {
         return bid;
     }
 
