@@ -62,5 +62,20 @@ public class ServicecConvertCurrencies {
         valorMoeda = (double) Math.round(valorMoeda * 100d) / 100;
         JOptionPane.showMessageDialog(null, "Você tem R$ " + valorMoeda + " Reais");
     }
+
+    public void ConvertBrlToClp(double valor) throws Exception {
+        Coin brlToClp = ServicePrice.PriceCoin("brl-clp");
+        double bid = brlToClp.getBid();
+        double valorMoeda = valor*bid;
+        valorMoeda = (double) Math.round(valorMoeda * 100d) / 100;
+        JOptionPane.showMessageDialog(null, "Você tem $ " + valorMoeda + " Libras Estelinas");
+    }
+    public void ConvertClpToBrl(double valor) throws Exception {
+        Coin clpToBrl = ServicePrice.PriceCoin("brl-clp");
+        double bid = clpToBrl.getBid();
+        double valorMoeda = valor/bid;
+        valorMoeda = (double) Math.round(valorMoeda * 100d) / 100;
+        JOptionPane.showMessageDialog(null, "Você tem R$ " + valorMoeda + " Reais");
+    }
     
 }
