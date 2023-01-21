@@ -48,4 +48,19 @@ public class ServicecConvertCurrencies {
         valorMoeda = (double) Math.round(valorMoeda * 100d) / 100;
         JOptionPane.showMessageDialog(null, "Você tem R$ " + valorMoeda + " Reais");
     }
+    public void ConvertBrlToGbp(double valor) throws Exception {
+        Coin brlToGbp = ServicePrice.PriceCoin("brl-gbp");
+        double bid = brlToGbp.getBid();
+        double valorMoeda = valor*bid;
+        valorMoeda = (double) Math.round(valorMoeda * 100d) / 100;
+        JOptionPane.showMessageDialog(null, "Você tem $ " + valorMoeda + " Libras Estelinas");
+    }
+    public void ConvertGbpToBrl(double valor) throws Exception {
+        Coin gbpToBrl = ServicePrice.PriceCoin("brl-gbp");
+        double bid = gbpToBrl.getBid();
+        double valorMoeda = valor/bid;
+        valorMoeda = (double) Math.round(valorMoeda * 100d) / 100;
+        JOptionPane.showMessageDialog(null, "Você tem R$ " + valorMoeda + " Reais");
+    }
+    
 }

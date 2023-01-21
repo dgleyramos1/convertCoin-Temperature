@@ -21,7 +21,9 @@ public class ControllerConvertCurrincies {
                 "De Real para Peso Argentino", 
                 "De Peso Argentino para Real",
                 "De Real para Euro",
-                "De Euro para Real"
+                "De Euro para Real",
+                "De Real para Libra Estelina",
+                "De Libra Estelina para Real"
             }, 
             "Escolha").toString();
 
@@ -44,6 +46,12 @@ public class ControllerConvertCurrincies {
                 break;
             case "De Euro para Real":
                 convert.ConvertEurToBrl(valor);
+                break;
+            case "De Real para Libra Estelina":
+                convert.ConvertBrlToGbp(valor);
+                break;
+            case "De Libra Estelina para Real":
+                convert.ConvertGbpToBrl(valor);
                 break;
         }
     }
