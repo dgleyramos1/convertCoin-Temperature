@@ -27,6 +27,7 @@ public class ServicePrice {
 
         URLConnection conn = url.openConnection();
 
+
         try {
 
             InputStream is = conn.getInputStream();
