@@ -45,7 +45,6 @@ public class ControllerConvertTemperature {
             case "De Kelvin para Fahrenheit":
                 convert.ConvertKelvinToFahrenheit(valor);
                 break;
-            
         }
     }
 }
