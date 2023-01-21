@@ -2,11 +2,11 @@ package com.convert.coin.controller;
 
 import javax.swing.JOptionPane;
 
-import com.convert.coin.service.ServicecConvertCurrencies;
+import com.convert.coin.service.ServiceConvertCurrencies;
 
 public class ControllerConvertCurrincies {
 
-    ServicecConvertCurrencies convert = new ServicecConvertCurrencies();
+    ServiceConvertCurrencies convert = new ServiceConvertCurrencies();
     
     public void ConvertCurrencies(double valor) throws Exception{
         String opcao = JOptionPane.showInputDialog(
