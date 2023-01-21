@@ -44,7 +44,6 @@ public class ServicePrice {
             
             newCoin = new Coin(coinJson.getCode(), coinJson.getCodein(), coinJson.getBid());
 
-            System.out.println(newCoin.getCode() + " " + newCoin.getCodein() + " " + newCoin.getBid());
             return newCoin;
         } catch (Exception e) {
             throw new Exception("ERRO: " + e.getMessage());

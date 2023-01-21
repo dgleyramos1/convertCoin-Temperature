@@ -28,5 +28,8 @@ public class Coin {
         return bid;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Coin [code=" + code + ", codein=" + codein + ", bid=" + bid + "]";
+    }    
 }
