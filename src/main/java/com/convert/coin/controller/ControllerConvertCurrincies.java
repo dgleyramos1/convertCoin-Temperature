@@ -16,26 +16,34 @@ public class ControllerConvertCurrincies {
             JOptionPane.PLAIN_MESSAGE,
             null,
             new Object[]{
-                "De Reais para Dólares", 
-                "De Dóllar para Reais", 
-                "De Reais para Peso Argentino", 
-                "De Peso Argentino para Reais"
+                "De Real para Dólar", 
+                "De Dólar para Real", 
+                "De Real para Peso Argentino", 
+                "De Peso Argentino para Real",
+                "De Real para Euro",
+                "De Euro para Real"
             }, 
             "Escolha").toString();
 
 
         switch(opcao){
-            case "De Reais para Dólares":
+            case "De Real para Dólar":
                 convert.ConvertBrlToUsd(valor);
                 break;
-            case "De Dóllar para Reais":
+            case "De Dólar para Real":
                 convert.ConvertUsdToBrl(valor);
                 break;
-            case "De Reais para Peso Argentino":
+            case "De Real para Peso Argentino":
                 convert.ConvertBrlToArs(valor);
                 break;
-            case "De Peso Argentino para Reais":
+            case "De Peso Argentino para Real":
                 convert.ConvertArsToBrl(valor);
+                break;
+            case "De Real para Euro":
+                convert.ConvertBrlToEur(valor);
+                break;
+            case "De Euro para Real":
+                convert.ConvertEurToBrl(valor);
                 break;
         }
     }

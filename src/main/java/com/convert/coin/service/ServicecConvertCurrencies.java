@@ -34,4 +34,18 @@ public class ServicecConvertCurrencies {
         valorMoeda = (double) Math.round(valorMoeda * 100d) / 100;
         JOptionPane.showMessageDialog(null, "Você tem R$ " + valorMoeda + " Reais");
     }
+    public void ConvertBrlToEur(double valor) throws Exception {
+        Coin brlToEur = ServicePrice.PriceCoin("brl-eur");
+        double bid = brlToEur.getBid();
+        double valorMoeda = valor*bid;
+        valorMoeda = (double) Math.round(valorMoeda * 100d) / 100;
+        JOptionPane.showMessageDialog(null, "Você tem R$ " + valorMoeda + " Euros");
+    }
+    public void ConvertEurToBrl(double valor) throws Exception {
+        Coin eurToBrl = ServicePrice.PriceCoin("brl-eur");
+        double bid = eurToBrl.getBid();
+        double valorMoeda = valor/bid;
+        valorMoeda = (double) Math.round(valorMoeda * 100d) / 100;
+        JOptionPane.showMessageDialog(null, "Você tem R$ " + valorMoeda + " Reais");
+    }
 }
