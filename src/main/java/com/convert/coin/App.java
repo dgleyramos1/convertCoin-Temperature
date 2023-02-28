@@ -18,8 +18,13 @@ public class App {
         int resposta = -1;
 
         do {
-            String opcoes = JOptionPane.showInputDialog(null, "Escolha uma opção", "Menu", JOptionPane.PLAIN_MESSAGE,
-                    null, new Object[] { "Conversor de Moeda", "Conversor de Temperatura" }, "Escolha").toString();
+            String opcoes = (String) JOptionPane.showInputDialog(null, "Escolha uma opção", "Menu",
+                    JOptionPane.OK_CANCEL_OPTION,
+                    null, new Object[] { "Conversor de Moeda", "Conversor de Temperatura" }, "Escolha");
+
+            if (opcoes == null) {
+                return;
+            }
 
             switch (opcoes) {
                 case "Conversor de Moeda":
@@ -30,7 +35,6 @@ public class App {
                         finish(resposta);
                         break;
                     }
-                    System.out.println(coin);
                     double valor = Double.parseDouble(coin);
                     controllerCoin.ConvertCurrencies(valor);
                     resposta = JOptionPane.showConfirmDialog(null, "Deseja continuar?");
@@ -38,6 +42,12 @@ public class App {
                     break;
                 case "Conversor de Temperatura":
                     String temperature = JOptionPane.showInputDialog("Insira um valo");
+                    if (temperature.matches("^[A-Za-z]*")) {
+                        resposta = JOptionPane.showConfirmDialog(null,
+                                "Por favor, coloque somente números! Deseja continuar?");
+                        finish(resposta);
+                        break;
+                    }
                     double graus = Double.parseDouble(temperature);
                     controllerTemperature.ConvertCurrencies(graus);
                     resposta = JOptionPane.showConfirmDialog(null, "Deseja continuar?");
